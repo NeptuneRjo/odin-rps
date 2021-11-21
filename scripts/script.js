@@ -4,26 +4,17 @@
 //  if computer wins, display loss message to player
 //  if player wins, display win message to player
 //  player choice is entered with prompt()
+
 let comScore = 0;
 let playerScore = 0;
 let comChoice = ["Rock", "Paper", "Scissors"]
  
 
-// function computerSelection() {
-//     let comChoice = ["Rock", "Paper", "Scissors"]
-//     return comChoice[Math.floor(Math.random()*comChoice.length)]
-// }
-
-
-// function playerSelection() {
-//     return prompt("Enter your choice: ")
-// }
-
 
 function displayVictor() {
     if (comScore == playerScore) {
         console.log("This game was a tie!");
-        console.log(playerScore, comScore)
+        console.log(playerScore, comScore);
     
     } else if (comScore > playerScore) {
         console.log("The computer won this game. Better luck next time!");
