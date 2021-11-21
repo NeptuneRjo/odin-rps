@@ -4,61 +4,23 @@
 //  if computer wins, display loss message to player
 //  if player wins, display win message to player
 //  player choice is entered with prompt()
-
- 
-
-function computerSelection() {
-    let comChoice = ["Rock", "Paper", "Scissors"]
-    return comChoice[Math.floor(Math.random()*comChoice.length)]
-}
-
-
-function playerSelection(value) {
-    return prompt("Enter your choice: ")
-}
-
-
 let comScore = 0;
 let playerScore = 0;
+let comChoice = ["Rock", "Paper", "Scissors"]
+ 
+
+// function computerSelection() {
+//     let comChoice = ["Rock", "Paper", "Scissors"]
+//     return comChoice[Math.floor(Math.random()*comChoice.length)]
+// }
 
 
-function game(playRound) {
-    for (let i = 0; i < 5; i++) {
-        console.log(i)
-
-        playerSelection()
-        computerSelection()
-
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection().isLowerCase();
-            computerSelection = computerSelection().isLowerCase();
-            console.log(computerSelection)
-        
-            if (playerSelection == computerSelection) {
-                console.log("Tie round!")
-        
-            } else if (
-                (computerSelection == "rock" && playerSelection == "scissors") ||
-                (computerSelection == "scissors" && playerSelection == "paper") ||
-                (computerSelection == "paper" && playerSelection == "rock")
-            ) {
-                console.log("The computer won this round")
-                console.log(`${computerSelection} beats ${playerSelection}!`)
-                comScore++;
-        
-            } else {
-                console.log("You won this round")
-                console.log(`${playerSelection} beats ${computerSelection}!`)
-                playerScore = ++playerScore;
-            }
-        }
-
-    }
-}
-console.log(playerScore, comScore)
+// function playerSelection() {
+//     return prompt("Enter your choice: ")
+// }
 
 
-function displayVictor(playerScore, comScore) {
+function displayVictor() {
     if (comScore == playerScore) {
         console.log("This game was a tie!");
         console.log(playerScore, comScore)
@@ -67,9 +29,49 @@ function displayVictor(playerScore, comScore) {
         console.log("The computer won this game. Better luck next time!");
 
     } else {
-        console.log("You won this round!");
+        console.log("You won this game!");
     }
 }
 
+
+function playRound() {
+    let computerSelection = comChoice[Math.floor(Math.random()*comChoice.length)];
+    let playerSelection = prompt("Enter your choice: ");
+
+    computerSelection = computerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
+    
+
+    if (playerSelection == computerSelection) {
+        console.log("Tie round!")
+
+    } else if (
+        (computerSelection == "rock" && playerSelection == "scissors") ||
+        (computerSelection == "scissors" && playerSelection == "paper") ||
+        (computerSelection == "paper" && playerSelection == "rock")
+    ) {
+        console.log("The computer won this round")
+        console.log(`${computerSelection} beats ${playerSelection}!`)
+        comScore++;
+
+    } else {
+        console.log("You won this round")
+        console.log(`${playerSelection} beats ${computerSelection}!`)
+        playerScore = ++playerScore;
+    }
+}
+
+
+function game() {
+
+    for (let i = 1; i < 6; i++) {
+        console.log(`Round ${i}`)
+        playRound();
+    }
+
+    displayVictor()
+    console.log(`The score was ${playerScore} to ${comScore}`)
+}
+
 game();
-displayVictor();
+
