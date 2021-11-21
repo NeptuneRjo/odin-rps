@@ -18,36 +18,58 @@ function playerSelection(value) {
 }
 
 
-// playRound
-// for 5 times
-// get computerSelection and playerSelection
-// compare
-// return results
-
 let comScore = 0;
 let playerScore = 0;
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection().toLowerCase();
-    computerSelection = computerSelection().toLowerCase();
-    console.log(computerSelection)
 
-    if (playerSelection == computerSelection) {
-        console.log("Tie game!")
-    } else if (
-        (computerSelection == "rock" && playerSelection == "scissors") ||
-        (computerSelection == "scissors" && playerSelection == "paper") ||
-        (computerSelection == "paper" && playerSelection == "rock")
-    ) {
-        console.log("The computer won this round")
-        console.log(`${computerSelection} beats ${playerSelection}!`)
-        comScore = ++comScore;
+function game(playRound) {
+    for (let i = 0; i < 5; i++) {
+        console.log(i)
+
+        playerSelection()
+        computerSelection()
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection().isLowerCase();
+            computerSelection = computerSelection().isLowerCase();
+            console.log(computerSelection)
+        
+            if (playerSelection == computerSelection) {
+                console.log("Tie round!")
+        
+            } else if (
+                (computerSelection == "rock" && playerSelection == "scissors") ||
+                (computerSelection == "scissors" && playerSelection == "paper") ||
+                (computerSelection == "paper" && playerSelection == "rock")
+            ) {
+                console.log("The computer won this round")
+                console.log(`${computerSelection} beats ${playerSelection}!`)
+                comScore++;
+        
+            } else {
+                console.log("You won this round")
+                console.log(`${playerSelection} beats ${computerSelection}!`)
+                playerScore = ++playerScore;
+            }
+        }
+
+    }
+}
+console.log(playerScore, comScore)
+
+
+function displayVictor(playerScore, comScore) {
+    if (comScore == playerScore) {
+        console.log("This game was a tie!");
+        console.log(playerScore, comScore)
+    
+    } else if (comScore > playerScore) {
+        console.log("The computer won this game. Better luck next time!");
 
     } else {
-        console.log("You won this round")
-        console.log(`${playerSelection} beats ${computerSelection}!`)
-        playerScore = ++playerScore;
+        console.log("You won this round!");
     }
 }
 
-console.log(playRound(playerSelection, computerSelection))
+game();
+displayVictor();
