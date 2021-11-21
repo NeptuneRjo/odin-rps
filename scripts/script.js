@@ -22,7 +22,6 @@ function playerChoice() {
 function displayVictor() {
     if (comScore == playerScore) {
         console.log("This game was a tie!");
-        console.log(playerScore, comScore);
     
     } else if (comScore > playerScore) {
         console.log("The computer won this game. Better luck next time!");
