@@ -7,8 +7,16 @@
 
 let comScore = 0;
 let playerScore = 0;
-let comChoice = ["Rock", "Paper", "Scissors"]
- 
+
+function comChoice() {
+    let choice = ["Rock", "Paper", "Scissors"]
+    return choice[Math.floor(Math.random()*choice.length)]
+}
+
+
+function playerChoice() {
+    return prompt("Enter your choice: ")
+}
 
 
 function displayVictor() {
@@ -26,8 +34,8 @@ function displayVictor() {
 
 
 function playRound() {
-    let computerSelection = comChoice[Math.floor(Math.random()*comChoice.length)];
-    let playerSelection = prompt("Enter your choice: ");
+    let computerSelection = comChoice();
+    let playerSelection = playerChoice();
 
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
