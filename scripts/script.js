@@ -50,13 +50,13 @@ function playRound() {
         (computerSelection == "scissors" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
-        console.log("The computer won this round")
-        console.log(`${computerSelection} beats ${playerSelection}!`)
+        console.log("The computer won this round");
+        console.log(`${computerSelection} beats ${playerSelection}!`);
         comScore++;
 
     } else {
-        console.log("You won this round")
-        console.log(`${playerSelection} beats ${computerSelection}!`)
+        console.log("You won this round");
+        console.log(`${playerSelection} beats ${computerSelection}!`);
         playerScore = ++playerScore;
     }
 }
@@ -65,12 +65,12 @@ function playRound() {
 function game() {
 
     for (let i = 1; i < 6; i++) {
-        console.log(`Round ${i}`)
+        console.log(`Round ${i}`);
         playRound();
     }
 
-    displayVictor()
-    console.log(`The score was ${playerScore} to ${comScore}`)
+    displayVictor();
+    console.log(`The score was ${playerScore} to ${comScore}`);
 }
 
 game();
