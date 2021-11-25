@@ -1,0 +1,36 @@
+body {
+    margin: 150px;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    border: solid 1px black;
+    height: 25px;
+    width: 300px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 300px;
+    border: solid 1px red;
+}
+
+#buttonContainer {
+    display: flex;
+    border: solid 1px blue;
+    justify-content: center;    
+}
+
+#choices {
+    display: flex;
+    border: solid 1px green;
+    justify-content: space-around;
+    flex-grow: 1;
+    align-items: center;
+}
